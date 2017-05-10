@@ -1,0 +1,19 @@
+---
+layout: page
+---
+
+<hr/>
+
+{% unless page.content == '' %}
+<p>{{ page.content }}</p>
+{% endunless %}
+
+{% unless site.tags[page.tag] %}
+<p>No posts in this tag at this time.</p>
+{% endunless %}
+
+<div class="posts">
+    {% for post in site.tags[page.tag] %}
+    {% include post-preview.html %}
+    {% endfor %}
+</div>
