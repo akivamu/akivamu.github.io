@@ -18,3 +18,18 @@ $font-family: Raleway, Helvetica, Arial, sans-serif;
 figure {
   margin: 0;
 }
+
+.post-meta {
+  margin-top: 5px;
+  margin-bottom: 15px;
+
+  .post-date-wrapper,
+  .post-tags-wrapper {
+    display: inline-block;
+    margin-right: 2rem;
+  }
+
+  .post-tag {
+    margin-right: 1rem;
+  }
+}

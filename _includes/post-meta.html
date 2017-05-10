@@ -1,0 +1,12 @@
+<div class="post-meta">
+    <div class="post-date-wrapper">
+        <i class="fa fa-calendar"></i>
+        <span>{{ post.date | date_to_string }}</span>
+    </div>
+    <div class="post-tags-wrapper">
+        <i class="fa fa-tags"></i>
+        {% for tag in post.tags %}
+        <span class="post-tag"><a href="/tag/{{ tag | slugify }}">{{ tag }}</a></span>
+        {% endfor %}
+    </div>
+</div>
