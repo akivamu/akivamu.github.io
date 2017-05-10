@@ -41,7 +41,7 @@ If key is null, its hash code will be `0`.
 Note that there are cases that different keys can have the same hash code (collision) that we will discuss below.
 ### Step 2\. Find where to store data in `Entry` table
 Using above hash code, HashMap can calculate the position (index) in `Entry` table that can add value to.
-Here is the formula (as [explained in SOF](http://stackoverflow.com/a/10879475/6445037)):
+Here is the formula (as [explained in SOF](http://stackoverflow.com/a/10879475/6445037){:rel="nofollow" target="_blank"}):
 {% highlight java %}
 int index = hashcode & table.length;
 {% endhighlight %}

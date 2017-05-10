@@ -6,7 +6,7 @@ tags:
 - Algorithm
 ---
 
-[This](https://rob-bell.net/2009/06/a-beginners-guide-to-big-o-notation/) is great article of basic things about
+[This](https://rob-bell.net/2009/06/a-beginners-guide-to-big-o-notation/){:rel="nofollow" target="_blank"} is great article of basic things about
 big O notation. Big O notation is used for describing the complexity of algorithm, or the cost of doing something in
 worst case. Just want to sum up here.
 
@@ -80,7 +80,7 @@ Cost will doubles each time we increase size of data by 1. Because each step wil
 * number = 3: 8 steps i.e. 2 function calls test (2), each has 2 test(1) and each has 2 test(0)
 
 ## O(log(n))
-Quite hard to explain by word. Let's see this example from [SOF](http://stackoverflow.com/questions/17122807/big-o-ologn-code-example):
+Quite hard to explain by word. Let's see this example from [SOF](http://stackoverflow.com/questions/17122807/big-o-ologn-code-example){:rel="nofollow" target="_blank"}:
 {% highlight java %}
 while (n > 0) {
    n/=2; 

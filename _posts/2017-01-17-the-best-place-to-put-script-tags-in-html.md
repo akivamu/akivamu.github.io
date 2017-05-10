@@ -17,5 +17,5 @@ So we need to solve it, trying to not blocking HTML parser with `<script>` tag.
 that, all HTML components can be parsed and displayed to user before script started to load.
 * Modern approach: modern browsers support the **async** and **defer** attributes on scripts. These attributes tell
 the browser it's safe to continue parsing while the scripts are being downloaded. See full answer
-[here](http://stackoverflow.com/a/24070373/6445037).
+[here](http://stackoverflow.com/a/24070373/6445037){:rel="nofollow" target="_blank"}.
 * Most correct answer: The best place for it is **just before you need** it and **no sooner**.

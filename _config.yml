@@ -13,9 +13,6 @@ author:
 
 exclude: ['Gemfile.lock', 'Gemfile']
 
-gems:
-  - jekyll-paginate
-
 sass:
   style: compressed
   sass_dir: _sass

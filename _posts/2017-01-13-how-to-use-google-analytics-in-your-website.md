@@ -7,7 +7,7 @@ tags:
 - Google Analytics
 ---
 
-<a href="https://www.google.com/analytics" rel="nofollow" target="_blank">Google Analytics</a> is a tool that helps to
+[Google Analytics](https://www.google.com/analytics){:rel="nofollow" target="_blank"} is a tool that helps to
 tracking traffic of visitor into your website, for example: from where user redirect to your website; how long they
 stay on your website or specific page; information like age, gender, location, browser, phone model, their interests...
 
@@ -17,9 +17,8 @@ optimize your website to get more traffic, or just making some sales or place ad
 
 ## How to use Google Analytics on Blogger?
 Google already has a clear guide to
-<a href="https://support.google.com/blogger/answer/7039627?hl=en" rel="nofollow" target="_blank">setup Google Analytics
-on Blogger</a>. Because both Analytics and Blogger belong to Google, they make it very easy to setup, just follow the
-guide step by step.
+[setup Google Analytics on Blogger](https://support.google.com/blogger/answer/7039627?hl=en){:rel="nofollow" target="_blank"}.
+Because both Analytics and Blogger belong to Google, they make it very easy to setup, just follow the guide step by step.
 
 ## How to use Google Analytics in any website?
 Of course you can use Google Analytics even if you don't use Blogger. Just some simple steps and you can have Google
@@ -37,7 +36,7 @@ I just describe common steps:
   how GA works.
 
 Above is just the summary of a simple usage. For more detail, check Google official documents:
-- <a href="https://support.google.com/analytics/answer/1008080" rel="nofollow" target="_blank">Set up Analytics tracking</a>
-- <a href="https://support.google.com/analytics/answer/1008083" rel="nofollow" target="_blank">Check your web tracking code setup</a>
-- <a href="https://developers.google.com/analytics/devguides/collection/analyticsjs/how-analyticsjs-works" rel="nofollow" target="_blank">How analytics.js Works</a>
-- <a href="https://support.google.com/analytics#topic=3544906" rel="nofollow" target="_blank">Google Analytics Help Center</a>
+- [Set up Analytics tracking](https://support.google.com/analytics/answer/1008080){:rel="nofollow" target="_blank"}
+- [Check your web tracking code setup](https://support.google.com/analytics/answer/1008083){:rel="nofollow" target="_blank"}
+- [How analytics.js Works](https://developers.google.com/analytics/devguides/collection/analyticsjs/how-analyticsjs-works){:rel="nofollow" target="_blank"}
+- [Google Analytics Help Center](https://support.google.com/analytics#topic=3544906){:rel="nofollow" target="_blank"}

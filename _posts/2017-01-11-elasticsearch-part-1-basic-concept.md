@@ -7,7 +7,7 @@ tags:
 thumbnail: https://3.bp.blogspot.com/-diH_MX6CB90/WHIQb7cJtoI/AAAAAAAAEJw/N41IVzPTawQSiRXHAbrOrIXNWaOjGtqlACLcB/s72-c/cluster-node-index.PNG
 ---
 
-Many say that <a href="https://www.elastic.co/" rel="nofollow" target="_blank">Elasticsearch</a> is powerful and easy
+Many say that [Elasticsearch](https://www.elastic.co/){:rel="nofollow" target="_blank"} is powerful and easy
 to approach. I agree that it is powerful, but easy? I doubt that, at least to me. When I first met Elasticsearch, I
 found that it has many terms and concepts, and query structure is way more complicated, with nested `query` and
 `filter` and `term` things.
@@ -17,8 +17,8 @@ so I just make some small changes, refer to base code. I don't feel good at that
 serious research, and write down to post series to help me systematically understand Elasticsearch.
 
 Reference:
-- <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/index.html" rel="nofollow" target="_blank">https://www.elastic.co/guide/en/elasticsearch/reference/current/index.html</a>
-- <a href="https://www.elastic.co/guide/en/elasticsearch/guide/current/index.html" rel="nofollow" target="_blank">https://www.elastic.co/guide/en/elasticsearch/guide/current/index.html</a>
+- [Official Reference](https://www.elastic.co/guide/en/elasticsearch/reference/current/index.html){:rel="nofollow" target="_blank"}
+- [Official Guide](https://www.elastic.co/guide/en/elasticsearch/guide/current/index.html){:rel="nofollow" target="_blank"}
 
 All posts belong to this series:
 - Part 1: Elasticsearch basic concept (this post)
@@ -34,7 +34,7 @@ the time this data is ready to be searched.
 
 ### How data is stored in computer?
 Elasticsearch stores its data in an sub-folder named `data`, in its root folder.  
-Detail here: <a href="https://www.elastic.co/blog/found-dive-into-elasticsearch-storage" rel="nofollow" target="_blank">A Dive into the Elasticsearch Storage</a>  
+Detail here: [A Dive into the Elasticsearch Storage](https://www.elastic.co/blog/found-dive-into-elasticsearch-storage){:rel="nofollow" target="_blank"}  
 Most of developer don't need to know where Elasticsearch stores data in the disk. I just list it here for reference.
 
 ### And how it organizes data logically?
@@ -53,6 +53,6 @@ separated concepts. By that, Index A can be divided into shards (but not necessa
 nodes. That how `node` and `index` work.
 
 Other concepts like document, type or shard are not that confuse, definition can be found here:
-<a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/_basic_concepts.html" rel="nofollow" target="_blank">Elasticsearch: Basic Concepts</a>
+[Elasticsearch: Basic Concepts](https://www.elastic.co/guide/en/elasticsearch/reference/current/_basic_concepts.html){:rel="nofollow" target="_blank"}
 
 I will come back and update this post later.
