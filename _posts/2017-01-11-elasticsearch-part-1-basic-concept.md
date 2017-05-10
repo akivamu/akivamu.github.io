@@ -47,7 +47,7 @@ The way Elasticsearch organize its data can be covered in these terms:
 - Shard: index is divided into shards, or just duplicated into shards
 
 You may confuse between cluster, node and index. It is easier to see a pic:
-![Cluster, Node and Index]({{ site.url }}/assets/images/cluster-node-index.png)
+![Cluster, Node and Index]({{ site.url }}/images/cluster-node-index.png)
 This picture describes one cluster, but in two point of view: node and index. You can see `node` and `index` are
 separated concepts. By that, Index A can be divided into shards (but not necessary), and shards are spread among
 nodes. That how `node` and `index` work.
