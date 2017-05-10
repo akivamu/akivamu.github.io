@@ -9,3 +9,8 @@ $font-family: Raleway, Helvetica, Arial, sans-serif;
 @import "poole";
 @import "syntax";
 @import "lanyon";
+
+.site-tag a {
+  display: inline-block;
+  margin-right: 12px;
+}
