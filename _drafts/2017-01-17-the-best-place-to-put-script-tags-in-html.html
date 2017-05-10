@@ -1,0 +1,14 @@
+---
+layout: post
+title: The best place to put script tags in HTML
+date: '2017-01-17T20:53:00.000+07:00'
+author: Huy Luu
+tags:
+- Frontend
+- HTML
+modified_time: '2017-01-18T18:57:07.692+07:00'
+blogger_id: tag:blogger.com,1999:blog-2409403985918607624.post-1693922822497450201
+blogger_orig_url: http://publicloop.blogspot.com/2017/01/the-best-place-to-put-script-tags-in-html.html
+---
+
+When browsing a webpage, browser will fetch HTML page. It then parses sequentially line by line, and shows HTML components to user (like title, head...). When encounters a script tag, browser has to request that script from URL, and during that time, nothing will be shown to user, not until browser finished requesting that script. It creates a blocking operation, which is bad in UX.<br /><br />So we need to solve it, trying to not blocking HTML parser with script tag.<br /><br /><ul><li>Legacy solution: Yahoo! Exceptional Performance team recommends placing scripts <b>at the bottom</b> of your page. By that, all HTML components can be parsed and displayed to user before script started to load.</li></ul><ul><li>Modern approach:&nbsp;modern browsers support the <b>async</b> and <b>defer</b> attributes on scripts. These attributes tell the browser it's safe to continue parsing while the scripts are being downloaded. See full answer <a href="http://stackoverflow.com/a/24070373/6445037" target="_blank">here</a>.</li></ul><ul><li>Most correct answer:&nbsp;The best place for it is <b>just before you need</b> it and <b>no sooner</b>.</li></ul>

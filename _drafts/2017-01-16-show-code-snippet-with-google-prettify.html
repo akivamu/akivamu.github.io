@@ -1,0 +1,14 @@
+---
+layout: post
+title: Show code snippet with Google Prettify
+date: '2017-01-16T19:29:00.000+07:00'
+author: Huy Luu
+tags:
+- Frontend
+- Blogger
+modified_time: '2017-01-18T18:57:23.952+07:00'
+blogger_id: tag:blogger.com,1999:blog-2409403985918607624.post-1533177852330461856
+blogger_orig_url: http://publicloop.blogspot.com/2017/01/show-code-snippet-with-google-prettify.html
+---
+
+Recently, I used <a href="http://publicloop.blogspot.com/2017/01/how-to-show-code-snippet-in-blogger.html">SyntaxHighter</a> to show source code in my blog. It works fine, but I feel something not very familiar. Just like the source code shown isn't similar to other pages, like Github. I decided to change to <a href="https://github.com/google/code-prettify" rel="nofollow" target="_blank">Google Prettify</a>, and wait to see if it's better. It's quite easy to setup, just follow official guide in Github. Here is a short summary:<br /><br />1. Embed Prettify into template:<br /><pre class="prettyprint">&lt;script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"&gt;&lt;/script&gt;</pre><br />2. Format the source code:<br /><pre class="prettyprint">&lt;pre class="prettyprint"&gt;<br /><br />class Voila {<br />public:<br />&nbsp; // Voila<br />&nbsp; static const string VOILA = "Voila";<br />&nbsp; // will not interfere with embedded &lt;a href="#voila2"&gt;tags&lt;/a&gt;.<br />}<br /><br />&lt;/pre&gt;<br /></pre>will become<br /><pre class="prettyprint">class Voila {<br />public:<br />&nbsp; // Voila<br />&nbsp; static const string VOILA = "Voila";<br />&nbsp; // will not interfere with embedded &lt;a href="#voila2"&gt;tags&lt;/a&gt;.<br />}</pre>
