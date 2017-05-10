@@ -11,4 +11,6 @@ author:
   url:               https://akivamu.github.io
   email:             akivamu@gmail.com
 
+exclude: ['Gemfile.lock', 'Gemfile']
+
 gems: [jekyll-paginate]
