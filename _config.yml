@@ -1,24 +1,14 @@
-# Permalinks
-#
-# Use of `relative_permalinks` ensures post links from the index work properly.
-permalink:           pretty
-relative_permalinks: false
-
 # Setup
 title:               AkiVaMu
 tagline:             Just tiny things come to mind...
-description:         'A reserved <a href="http://jekyllrb.com" target="_blank">Jekyll</a> theme that places the utmost gravity on content with a hidden drawer. Made by <a href="https://twitter.com/mdo" target="_blank">@mdo</a>.'
-url:                 https://akivamu.github.io
 baseurl:             ''
 paginate:            1
+permalink:           :slug
 
-# About/contact
+# About
 author:
   name:              akivamu
   url:               https://akivamu.github.io
   email:             akivamu@gmail.com
-
-# Custom vars
-version:             1.0.0
 
 gems: [jekyll-paginate]
