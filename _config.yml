@@ -6,7 +6,7 @@ paginate:            5
 permalink:           :slug
 
 # About
-repository:          https://github.com/akivamu/akivamu.github.io
+repository:          akivamu/akivamu.github.io
 author:
   name:              akivamu
   url:               https://akivamu.github.io
