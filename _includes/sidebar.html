@@ -13,6 +13,18 @@
     </div>
 
     <div class="sidebar-item">
+        <h1>Category</h1>
+        {% assign categories = site.categories | sort %}
+        {% for category in categories %}
+        <div>
+            <a href="{{ site.url }}/category/{{ category | first | slugify }}">
+                {{ category[0] }}
+            </a>
+        </div>
+        {% endfor %}
+    </div>
+
+    <div class="sidebar-item">
         <p>
             &copy; {{ site.time | date: '%Y' }}. All rights reserved.
         </p>
