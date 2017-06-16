@@ -3,10 +3,12 @@
         <i class="fa fa-calendar"></i>
         <span>{{ post.date | date_to_string }}</span>
     </div>
+    {% unless post.tags == empty %}
     <div class="post-tags-wrapper">
         <i class="fa fa-tags"></i>
         {% for tag in post.tags %}
         <span class="post-tag"><a href="/tag/{{ tag | slugify }}">{{ tag }}</a></span>
         {% endfor %}
     </div>
+    {% endunless %}
 </div>
