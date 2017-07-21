@@ -14,7 +14,7 @@ in summary:
 
 **Sound good, but doesn't work!**
 
-**[This](http://www.randallkent.com/2010/04/30/gitignore-not-working/) is working**
+[This](http://www.randallkent.com/2010/04/30/gitignore-not-working/) is working:
   - Step 1 (remove all from index): `git rm -r --cached .`
   - Step 2 (add again): `git add .`
   - Step 3: `git commit -m "fixing .gitignore"`
