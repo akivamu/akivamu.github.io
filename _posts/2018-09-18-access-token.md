@@ -217,15 +217,31 @@ Trade off in performance vs security:
 
 We modify the 2nd approach a bit:
 
-- Use short-lived Access token (hours...), no self-contained.
-  - Server stores Access token in memory or cache (for quick access).
+- Use short-lived Access token (hours...), self-contained.
 - Use long-lived Refresh token (days, weeks or permanent).
-  - Server stores Refresh token in dbms like SQL server or No-SQL.
-- Server access to mem/cache to verify Access token
-- Server access to dbms to verify Refresh token
-- When client logout, server deletes Access token in mem/cache and Refresh token in dbms
+  - Server stores Refresh token in database.
+- In addition, server stores a list of **revoked Access tokens** in database.
+- For each request:
+  - Server verify Access token by `secret`, no need database access
+  - If Access token is valid, server further queries database to check if token is revoked
+  - Server only accepts request if it's valid and NOT in revoked list
+- For Refresh token, server access to database to verify
+- When client logout:
+  - Server deletes Refresh token in database
+  - Server adds Access token to revoked list in database
 
-Here we sacrifice some performance to eliminate security hole window when Access token not expired yet.
+Here we eliminate security hole window when Access token not expired yet, by sacrifice some performance: the addition
+step to query database to check if Access token is revoked or not.
 
-By using fast database (in-memory and cache) to store Access token, we can improve performance when verifying Access
-token, compare to 1st approach.
+Because the revoked list is small (compared to when we store whole Access token list), the query should perform with
+better performance.
+
+We can improve performance by using fast database (in-memory and cache) to store revoked Access token list.
+
+# Summary
+
+Here are the benefits of these features:
+
+- Self-contained token: no need database hit when verifying.
+- Token expiration: increase security in case self-contained token is leaked.
+- Refresh token: no need to re-login.
