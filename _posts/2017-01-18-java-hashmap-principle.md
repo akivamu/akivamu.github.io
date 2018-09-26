@@ -43,7 +43,7 @@ Note that there are cases that different keys can have the same hash code (colli
 Using above hash code, HashMap can calculate the position (index) in `Entry` table that can add value to.
 Here is the formula (as [explained in SOF](http://stackoverflow.com/a/10879475/6445037){:rel="nofollow" target="_blank"}):
 {% highlight java %}
-int index = hashcode & table.length;
+int index = hashcode & (table.length - 1);
 {% endhighlight %}
 ### Step 3\. Add `Entry` into table
 We can now build an `Entry`, with key and value. Then we set it to the index that calculated above:
