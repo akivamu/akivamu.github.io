@@ -135,92 +135,169 @@ Exact  (38 digits precision):
   3.40282346638528859811704183484516925440 x 10^38
 ```
 
-# Precision test
+# What programmer should be aware of?
 
 In JAVA, we know:
 
 - `float` is 32bits fp number (7 digits precision)
 - `double` is 64bits fp number (16 digits precision)
 
-We will make some tests.
+## Store in memory
 
-## Make change inside of precision range
+We know `0.1` can not be stored exactly in memory.  
+Computer can only store the CLOSEST number to it.  
+"How close" is depends on the type of variable.
 
+### Use `float` type
+
+When we use `float` type to store value: `float a = 0.1f`
+
+- Computer will allocate 32bits memory slot
+- Assign the CLOSEST floating point number which can be represented by 32 bits.
+- It is: `00111101110011001100110011001101`
+- That bits sequence is assigned to the variable
+
+Analyzing that 32 bits sequence:
 ```
-float a = 1.2222333f;
-float b = 0.0000001f;
-float c = a + b;
+Sign: 0
+Exponent: 01111011 or 2^(-4)
+Fraction: 10011001100110011001101
+Fraction with 1 leading 1:
+         110011001100110011001101
+```
+We can convert that bits sequence to exact value in real life:  
+`0.100000001490116119384765625` exactly
 
-System.out.println("a    : " + a);
-System.out.println("b    : " + b);
-System.out.println("c    : " + c);
-System.out.println("a==c : " + (a==c));
+So now, the variable `a` has value `0.100000001490116119384765625` exactly
+
+That is CLOSEST number can be stored to represent 0.1 in `float` type.
+
+But when we print it out: `System.out.println("a = " + a)`, we see: `a = 0.1`  
+It's because the precision of `float` is 7-digits, we can only see last 7 digit. The remaining
+`1490116119384765625` will be cut out when displaying. But the memory still stores exactly value.
+
+### Use `double` type
+
+Now use `double` type to store the above 32-bits sequence.
+```
+double b = 0.1f;  // Notice the trailing f
+System.out.println("b = " + b)
 
 ---- Output ----
-a    : 1.2222333
-b    : 1.0E-7
-c    : 1.2222334    # the addition is correct
-a==c : false        # the comparision is correct
+b = 0.10000000149011612
 ```
-We can see `b = 0.0000001` is inside precision range (7 digits), so the calculation is simply correct.
+We can see `double` uses 64bits to store that 32bits sequence.  
+When printing, we can see precision 16-digits.
 
-## Make change outside of precision range
-
+But don't stop here. Let's try this code:
 ```
-float a = 1.2222333f;
-float b = 0.00000001f;
-float c = a + b;
-
-System.out.println("a    : " + a);
-System.out.println("b    : " + b);
-System.out.println("c    : " + c);
-System.out.println("a==c : " + (a==c));
+double b = 0.1;   // Without trailing f
+System.out.println("b = " + b)
 
 ---- Output ----
-a    : 1.2222333
-b    : 1.0E-8
-c    : 1.2222333   # oops, seem like we didn't add
-a==c : true        # ?
+b = 0.1
 ```
-Here, the change amount `b = 0.00000001` is outside of precision range (8th digit).  
-`c` can be like `1.22223331` but it prints just `1.2222333`.  
-And `a==c is true`.
+In this code, `double` doesnt store our old 32bits sequence.  
+Instead, computer uses 64 bits to store the CLOSEST number to 0.1 in 64bits, which is a number with very long decimal
+fraction.
 
-Does it just discard the addition if the operand is outside of precision range? NO.
+So when printing, that remaining is cut out, to only display `b = 0.1`
 
-## Make big change outside of precision range
+But in memory perspective, the variable `double b` is holding much more CLOSER number to `0.1`, than `float a`
 
-Now we make bigger change: `0.00000009` instead of `0.00000001`
+### Summary
+
+- Actual value of variable `float` or `double` is stored in binary form in memory
+- Displaying (via `System.out.print`) doesnt represent actual value of variable
+- If you want to print actual value, print it in binary form
+- Arithmetic operations are based on actual value, not printed value
+
+## Careful when working with floating point
+
 ```
-float a = 1.2222333f;
-float b = 0.00000009f;  // Instead of just 0.00000001
-float c = a + b;
+float  a = 1.22223335f;
+double b = a;
+double c = 1.22223335;
 
-System.out.println("a    : " + a);
-System.out.println("b    : " + b);
-System.out.println("c    : " + c);
-System.out.println("a==c : " + (a==c));
+System.out.println("a = " + a);
+System.out.println("b = " + b);
+System.out.println("c = " + c);
 
 ---- Output ----
-a    : 1.2222333
-b    : 9.0E-8
-c    : 1.2222334   # oops, it's correct again
-a==c : false       # great!
-```
-We can see it doesnt discard operations outside of precision range. The calculation is correct.  
-
-The problem here is when STORING value into variable, it ROUNDS UP to keep only 7 digits precision.
-
-In practice, this whole process is performed by floating point arithmetic.
-
-Here, for intuition understanding, I simplify as:
-```
-Step 1: Expand precision range (e.g. 1.2222333 -> 1.2222332954406738)
-Step 2: Do calculation to get result (e.g.        1.2222333854406742)
-Step 3: Rounds up result to 7-digits (1.2222334) 
+a = 1.2222333
+b = 1.2222332954406738
+c = 1.22223335
 ```
 
-In short: The calculation result is precise. The stored result isn't.
+Examine the `float  a = 1.22223335f`:
+
+- Creates 32bits variable a
+- The closest number to `1.22223335` in float type is `1.2222332954406738...`
+- So it's stored in variable `a`
+- Which is then printed `1.2222333` (rounded)
+
+Examine the `double b = 1.22223335f`:
+
+- Variable `b` stores the same memory content (bits sequence) as variable `a`
+- So it represents the same number: `1.2222332954406738...`
+- When printing, the trailing (`...`) is rounded. So it print `1.2222332954406738`
+- So it's different when displaying the same number, depends on the type.
+
+Examine the `double c = 1.22223335`:
+
+- Here `c` will stores a difference memory content than above cases
+- The memory content (64bits) holds much more closer number to `1.22223335` as compared with
+above cases (`1.2222332954406738...`)
+- It may be like `1.22223335000000000000000123...` (just for example)
+- So when printing, the trailing digits is rounded and discarded, which leave us: `1.22223335`
+
+### Summary
+
+- Arithmetic operations are based on variable actual value (in-memory bits sequence)
+- Displaying is based on variable type
+- Don't let displaying fool you
+
+## The infamous `0.1 + 0.2 = 0.3`
+
+### With `float` type
+
+```
+float a = 0.1f;
+float b = 0.2f;
+float c = a + b;
+double d = (double)a + (double)b;
+
+System.out.println("a = " + (double) a);
+System.out.println("b = " + (double) b);
+System.out.println("c = " + (double) c);
+System.out.println("d = " + (double) d);
+
+---- Output ----
+a = 0.10000000149011612
+b = 0.20000000298023224
+c = 0.30000001192092896
+d = 0.30000000447034836
+```
+We can see with the same float input `a` and `b`, arithmetic operation in `double d` is slightly more accurate than `float c`
+
+### With `double` type
+
+```
+double a = 0.1;
+double b = 0.2;
+double c = a + b;
+
+System.out.println("a = " + (double) a);
+System.out.println("b = " + (double) b);
+System.out.println("c = " + (double) c);
+
+---- Output ----
+a = 0.1
+b = 0.2
+c = 0.30000000000000004
+```
+With the double input `a` and `b`, arithmetic operation in `double c` is much more more accurate than above.  
+It's because of more accurate input (double vs float)
 
 # Reference
 
