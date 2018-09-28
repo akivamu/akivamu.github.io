@@ -257,7 +257,7 @@ above cases (`1.2222332954406738...`)
 - Displaying is based on variable type
 - Don't let displaying fool you
 
-## The infamous `0.1 + 0.2 = 0.3`
+## The infamous `0.1 + 0.2 != 0.3`
 
 ### With `float` type
 
@@ -298,6 +298,60 @@ c = 0.30000000000000004
 ```
 With the double input `a` and `b`, arithmetic operation in `double c` is much more more accurate than above.  
 It's because of more accurate input (double vs float)
+
+# BigDecimal
+
+In floating point world, we knew that `0.1` is not exactly `0.1`. It can not be stored exactly in memory.
+
+When we write `0.1`, computer understands it is `0.100000001490116119384765625`.
+
+The question is can we exactly represent `0.1` in computer?  
+Of course YES!
+
+But we must leave the floating point world, and enter the integer world.
+
+We make up a special data structure:
+
+- Magnitude: integer
+- Scale: integer
+
+That data structure can be interpreted: `Magnitude x 10^(scale)`  
+The `0.1` is represented:
+
+- Magnitude: 1
+- Scale: -1
+
+which is: `1 x 10^(-1)` = `0.1`
+
+Yeah, we succeed to represent exactly `0.1` in computer, using new data structure with integer only.
+
+And that is the principal of `BigDecimal` data type in JAVA.
+
+## `0.1 + 0.2 == 0.3`
+
+In BigDecimal world, we can code:
+```
+BigDecimal a = new BigDecimal("0.1");
+BigDecimal b = new BigDecimal("0.2");
+BigDecimal c = a.add(b);
+
+System.out.println("c = " + c);
+
+---- Output ----
+c = 0.3
+```
+Notice that `0.1` and `0.2` are inside of `double quote` when constructing BigDecimal variable.  
+That is for making exactly value in BigDecimal world.
+
+If we construct without double quote, like this:
+```
+BigDecimal a = new BigDecimal(0.1)
+System.out.println("a = " + a);
+
+---- Output ----
+a = 0.1000000000000000055511151231257827021181583404541015625
+```
+Here, we just wrap a floating point number inside BigDecimal.
 
 # Reference
 
