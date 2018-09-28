@@ -17,3 +17,10 @@ exclude: ['Gemfile.lock', 'Gemfile']
 sass:
   style: compressed
   sass_dir: _sass
+
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      comments: true
