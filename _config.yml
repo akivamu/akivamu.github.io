@@ -27,3 +27,4 @@ defaults:
 
 plugins:
   - jekyll-seo-tag
+  - jekyll-sitemap
