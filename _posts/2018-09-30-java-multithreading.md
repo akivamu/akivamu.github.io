@@ -2,7 +2,7 @@
 layout: post
 title: JAVA multi threading
 tags:
-- JAVA
+- Java
 ---
 
 # `synchronized` keyword
