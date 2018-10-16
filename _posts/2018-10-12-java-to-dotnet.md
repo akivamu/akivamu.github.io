@@ -12,7 +12,7 @@ tags:
 
 ## Fragmentation in .NET architecture
 
-[]({{ site.url }}/images/dotnet.png)
+![]({{ site.url }}/images/dotnet.png)
 
 .NET also suffers from fragmentation problem. In above figure, there are 3 implementations:
 
@@ -25,7 +25,7 @@ So .NET Standard is introduced. And it's open-source.
 
 ## .NET Standard
 
-[]({{ site.url }}/images/dotnet-standard.png)
+![]({{ site.url }}/images/dotnet-standard.png)
 
 [Demystifying .NET Core and .NET Standard](https://msdn.microsoft.com/en-us/magazine/mt842506.aspx)
 
