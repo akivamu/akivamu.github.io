@@ -14,3 +14,5 @@ This is very good post series about JS under the hood:
 [How does `this` works](https://stackoverflow.com/questions/3127429/how-does-the-this-keyword-work)
 
 [Variables: Scopes, Environments, and Closures](http://speakingjs.com/es5/ch16.html)
+
+[Prototype](https://tylermcginnis.com/beginners-guide-to-javascript-prototype/)
