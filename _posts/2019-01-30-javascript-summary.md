@@ -13,6 +13,10 @@ This is very good post series about JS under the hood:
 
 [How does `this` works](https://stackoverflow.com/questions/3127429/how-does-the-this-keyword-work)
 
+[var vs let](https://stackoverflow.com/questions/762011/whats-the-difference-between-using-let-and-var)  
+`var` is scoped to the nearest function block  
+`let` is scoped to the nearest enclosing block
+
 [Variables: Scopes, Environments, and Closures](http://speakingjs.com/es5/ch16.html)
 
 [Prototype](https://tylermcginnis.com/beginners-guide-to-javascript-prototype/)
