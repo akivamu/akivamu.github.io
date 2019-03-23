@@ -47,7 +47,8 @@ IEnumerable<Employee> enumerable = dbContext.Employee;
 enumerable.Count();
 ```
 
-Print log or use any SQL profiler, we can see the SQL query is like:
+To show generated SQL query to console, you can call `DbContextOptionsBuilder.UseLoggerFactory()` when create `DbContext`.  
+Or use any SQL profiler, we can see the SQL query is like:
 ```
 SELECT "e"."Id", "e"."IsActive", "e"."Name"
 FROM "Employee" AS "e"
