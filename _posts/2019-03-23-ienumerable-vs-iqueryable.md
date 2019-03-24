@@ -77,3 +77,8 @@ In the case of `IEnumerable`, the code line `IEnumerable<Employee> enumerable = 
 In the case of `IQueryable`, we actually use LINQ-to-Entities via `IQueryable`, and it translates into the final query to be executed in server.
 
 It's clearly that in this example, `IQueryable` has better performance than `IEnumerable`, but [not all methods are supported in this smart ways](https://docs.microsoft.com/en-us/dotnet/framework/data/adonet/ef/language-reference/supported-and-unsupported-linq-methods-linq-to-entities).
+
+References:
+
+- [Benchmarking](http://ivanitskyi.blogspot.com/2013/04/entity-framework-iqueryable-vs-ienumerable.html?m=1)
+- [iqueryable-vs-ienumerable-is-iqueryable-always-better-and-faster](https://stackoverflow.com/questions/43419228/)
