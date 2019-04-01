@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Single thread and multi thread app
+title: Single task and multi task app
 tags:
 - DotNet
 - JavaScript

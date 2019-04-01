@@ -6,6 +6,8 @@ tags:
 - JavaScript
 ---
 
+Read this article to know about multi task application: [Single task and multi task app](2019-03-31-single-multi-task-app.md)
+
 We know that all applications have the main thread, which handles user inputs, UI rendering. And we know that main thread should not be too busy handling any heavy stuffs. All heavy stuffs need to be offloaded into either:
 
 - Background (worker) threads, created inside the application
@@ -93,12 +95,29 @@ The code run as normal until it reachs `await` statement inside function `sample
 
 In short, `await` will split the remain code into callback function, and return.
 
-# Asynchronous in C#
+# Async programming in C#
 
+There are some great articles:
 
-https://docs.microsoft.com/en-us/dotnet/csharp/async
+- [https://docs.microsoft.com/en-us/dotnet/csharp/async](https://docs.microsoft.com/en-us/dotnet/csharp/async)
+- [https://docs.microsoft.com/en-us/dotnet/standard/async-in-depth](https://docs.microsoft.com/en-us/dotnet/standard/async-in-depth)
 
-https://docs.microsoft.com/en-us/dotnet/standard/async-in-depth
+And great post: [https://blogs.msdn.microsoft.com/pfxteam/2012/04/12/asyncawait-faq/](https://blogs.msdn.microsoft.com/pfxteam/2012/04/12/asyncawait-faq/)
 
-https://stackoverflow.com/questions/33821679/async-await-different-thread-id
-https://blogs.msdn.microsoft.com/pfxteam/2012/04/12/asyncawait-faq/
+# Async or sync
+
+[There are 2 type of async operations](2019-03-31-single-multi-task-app.md):
+
+- I/O-bound operations: which relate to networking (e.g. requests to server), or file system accessing(e.g. read/write to file system)
+- CPU-bound operations: which relate to computation (e.g. arithmetic calculation on large dataset, image processing)
+
+In Javascript, only IO operation is truly async. CPU operation will act like synchronous operation.  
+That's why when you `await` for IO operation, your main thread is free to do anything else.  
+But when you `await` on heavy CPU operation, the main thread is blocked and UI is freezing. Because, they are executed in main thread.
+
+In C#, CPU operation can be offloaded into worker thread. But the question is: [should I expose asynchronous wrappers for synchronous methods?](https://devblogs.microsoft.com/pfxteam/should-i-expose-asynchronous-wrappers-for-synchronous-methods/)
+
+In short:
+
+- For scalability: NO
+- For offloading: mostly NO, but with some exception
