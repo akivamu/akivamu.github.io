@@ -6,7 +6,7 @@ tags:
 - JavaScript
 ---
 
-Read this article to know about multi task application: [Single task and multi task app](2019-03-31-single-multi-task-app.md)
+Read this article to know about multi task application: [Single task and multi task app](single-multi-task-app)
 
 We know that all applications have the main thread, which handles user inputs, UI rendering. And we know that main thread should not be too busy handling any heavy stuffs. All heavy stuffs need to be offloaded into either:
 
@@ -106,7 +106,7 @@ And great post: [https://blogs.msdn.microsoft.com/pfxteam/2012/04/12/asyncawait-
 
 # Async or sync
 
-[There are 2 type of async operations](2019-03-31-single-multi-task-app.md):
+[There are 2 type of async operations](single-multi-task-app):
 
 - I/O-bound operations: which relate to networking (e.g. requests to server), or file system accessing(e.g. read/write to file system)
 - CPU-bound operations: which relate to computation (e.g. arithmetic calculation on large dataset, image processing)
