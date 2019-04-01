@@ -1,6 +1,6 @@
 ---
 layout: post
-title: async await and thread
+title: Single thread and multi thread app
 tags:
 - DotNet
 - JavaScript
@@ -39,11 +39,11 @@ Basically, the main thread is an infinite loop which monitoring a queue of event
 If the queue is empty, the main thread is just looping and wait.  
 When an event arrives to that queue, the main thread should be ready to pick up and process.  
 If another new event arrives while main thread is busy processing, we suffer a blocking, which is
-called bad user experience.
+called "your program stops responding too long". So main thread should process very light weight works.
 
-So main thread should process very light weight works. All heavy works should be shifted to background threads.
+All heavy works should be shifted to background threads. Each time app needs to process an expensive work, it creates a new thread, do all heavy stuffs in that thread. That make the main thread free, and ready to serve new event. When background thread finished, it can notify main thread about completion.
 
-## Single thread with asynchronous method
+## Single thread with asynchronous programming
 
 In this method, there is only one thread in application.  
 This single thread can be called main thread or UI thread too, because it acts the same as above.
@@ -59,7 +59,9 @@ Turns out there are 2 main types of heavy work which we can deal with separately
 
 ### IO operations
 
-For the IO operations, turns out it's simple: application just shifts the heavy work to the system (OS or engine) which host the app. Take a look at this pseudo JS code:
+For the IO operations, turns out it's simple: application just shifts the heavy work to the "system" which hosts the app. The "system" here may be OS or JS engine depends on the software architecture. Now we call it "system" in common.
+
+Take a look at this pseudo JS code:
 
 ```js
 var url = 'google.com'
@@ -75,51 +77,18 @@ http.get(url, callback)
 
 In human language: "Hey http, fetch data from google.com, and when you finished, call `callback` function with the response you have"
 
-Here, the app uses `http.get()` to tell underlying JS engine (or OS) 2 things: the work and the callback.  
+Here, the app uses `http.get()` to tell the system 2 things: the work and the callback.  
 Notice that this call to `http.get()` is very light weight. You can think it's just registering and return. The app will immediately continue to the next line of code.
 
-Then the engine performs actual IO (network) operation. It can spawn new thread, using interrupt mechanism or whatever. But the app just don't care.
-When work finished, the engine calls the registered `callback`, passing along with the response.
+Then the system performs actual IO (network) operation. It can spawn new thread, using interrupt mechanism or whatever. But it's outside of the app scope, the app doesn't know anything about detail and it just does't care.  
+When work finished, the system calls the registered `callback`, passing along with the response.
 
 To summary, single thread app can handle all IO operations asynchronously, with the help of underlying system. App doesn't need to create new worker thread to process any IO operation.
 
 ### CPU-bound operations
 
-But CPU-bound operations are not supported by engine or OS, because it's too customized, depends on the application logic. App need to create new worker thread to process heavy CPU computation operations. So, no single thread anymore.
+But CPU-bound operations are not supported by the system, because they are too customized, vary depend on the application logic.
 
-# Asynchronous in Javascript
+So, app need to create new worker thread to process heavy CPU computation operations. So, no single thread anymore.
 
-JS is single thread by nature.
-
-At the beginning, we write code like this:
-
-```js
-http.get('abc.com/login', function(res) {
-    console.log('Logged in')
-})
-```
-
-Then `promise` is invented:
-
-```js
-http.get('abc.com/login').then(function(res) {
-    console.log('Logged in')
-})
-```
-
-And then, `async` and `await`
-
-```js
-await http.get('abc.com/login')
-console.log('Logged in')
-```
-
-# Asynchronous in C#
-
-
-https://docs.microsoft.com/en-us/dotnet/csharp/async
-
-https://docs.microsoft.com/en-us/dotnet/standard/async-in-depth
-
-https://stackoverflow.com/questions/33821679/async-await-different-thread-id
-https://blogs.msdn.microsoft.com/pfxteam/2012/04/12/asyncawait-faq/
+You may know JS is single thread by nature, so to handle heavy CPU-bound operations, it will need more advance workaround, e.g. [Web Workers](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Using_web_workers)
