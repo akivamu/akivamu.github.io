@@ -36,23 +36,58 @@ It's hard to perfectly arrange skills/knowledges into each level, so let's combi
 
 ## Knowledges for technical path
 
-- Fundamental technical
-  - [Computer fundamental](cs-computer-fundamental)
-  - [Networking](cs-networking)
-  - [Data structure & algo](cs-data-structure-algorithm)
-  - Database design
+- [Computer fundamental](cs-computer-fundamental)
+  - Processor and Memory
+  - Startup
+  - Operating System
+    - Scheduler
+    - Kernel and drivers
+    - Processes and Threads
+  - Compiler, linker, assembler...
+- [Networking](cs-networking)
+  - Information theory
+  - Protocol
+    - Cellphone
+    - Wifi
+    - Bluetooth
+    - RFID
+    - TCP/IP
+- General software development
+  - [Data structure & algos](cs-data-structure-algorithm)
+  - Database
+  - Security
+  - Software development process: Agile...
+  - DevOps
+    - CI/CD
+    - Containerizing
+  - System design: scaling, microservice, microfrontend...
+  - Tools
+- Developer
   - Design patterns
   - Design principles: SOLID, Clean Architecture, IoC, AOP
-  - System design: microservice, microfrontend...
-- Trending technical
-  - Process: Agile, CI/CD
+  - Development methodologies:
+    - TDD
+  - Programming paradigms
+    - https://coronet.iicm.tugraz.at/sa/scripts/lesson01.htm
+    - https://en.wikipedia.org/wiki/Programming_paradigm
   - Languages, libraries, frameworks
-  - Containerizing
 - Softskills
   - Communication
   - Estimation
   - Mentoring
 
+If you are serious, invest heavily in fundamental stuffs because you will use them for the whole life, and
+they will barely outdated.
+
+Spend enough time for trending stuffs, as they will help you find jobs. Some trending stuffs will become
+fundamental. So make sure you choose correct one.
+
+Softskills are always needed as it make you efficient.
+
 ## Reference
 
 - [Coding interview university](https://github.com/jwasham/coding-interview-university)
+- [https://en.wikipedia.org/wiki/Programming_paradigm](https://en.wikipedia.org/wiki/Programming_paradigm)
+- [Paradigms](https://coronet.iicm.tugraz.at/sa/scripts/lesson01.htm)
+- [evergreen-skills-developers](https://github.com/romenrg/evergreen-skills-developers)
+- [system-design-primer](https://github.com/donnemartin/system-design-primer)
