@@ -36,7 +36,7 @@ It's hard to perfectly arrange skills/knowledges into each level, so let's combi
 
 ## Knowledges for technical path
 
-- [Computer fundamental](cs-computer-fundamental)
+- [ ] [Computer fundamental](cs-computer-fundamental)
   - Processor and Memory
   - Startup
   - Operating System
@@ -47,30 +47,57 @@ It's hard to perfectly arrange skills/knowledges into each level, so let's combi
 - [Networking](cs-networking)
   - Information theory
   - Protocol
+    - HTTP
+    - TCP/IP
+    - Bluetooth
     - Cellphone
     - Wifi
-    - Bluetooth
     - RFID
-    - TCP/IP
+    - ...
 - General software development
   - [Data structure & algos](cs-data-structure-algorithm)
   - Database
+    - SQL, NoSQL
+    - Relational design
+    - Distributed database
   - Security
   - Software development process: Agile...
   - DevOps
     - CI/CD
     - Containerizing
-  - System design: scaling, microservice, microfrontend...
+  - System design:
+    - [system-design-primer](https://github.com/donnemartin/system-design-primer)
+    - UML
+    - Design document
   - Tools
+    - Git
+    - Code coverage
 - Developer
-  - Design patterns
-  - Design principles: SOLID, Clean Architecture, IoC, AOP
+  - Design principles
+    - GoF
+    - MVC, MVP, MVVM
+    - Reactive
+    - SOLID, Clean Architecture, IoC, AOP
   - Development methodologies:
-    - TDD
+    - TDD, BDD, ATDD
   - Programming paradigms
-    - https://coronet.iicm.tugraz.at/sa/scripts/lesson01.htm
-    - https://en.wikipedia.org/wiki/Programming_paradigm
-  - Languages, libraries, frameworks
+    - [https://en.wikipedia.org/wiki/Programming_paradigm](https://en.wikipedia.org/wiki/Programming_paradigm)
+    - [Paradigms](https://coronet.iicm.tugraz.at/sa/scripts/lesson01.htm)
+  - Languages
+    - Rust
+    - Python
+    - Java, C#
+    - Javascript, Typescript
+  - Libraries, frameworks
+    - NodeJS
+    - .NET
+    - Angular, Vue, React
+    - WebSocket
+    - WebComponent
+    - REST, Message queue
+- AI
+  - Machine learning
+- Blockchain
 - Softskills
   - Communication
   - Estimation
@@ -87,7 +114,4 @@ Softskills are always needed as it make you efficient.
 ## Reference
 
 - [Coding interview university](https://github.com/jwasham/coding-interview-university)
-- [https://en.wikipedia.org/wiki/Programming_paradigm](https://en.wikipedia.org/wiki/Programming_paradigm)
-- [Paradigms](https://coronet.iicm.tugraz.at/sa/scripts/lesson01.htm)
 - [evergreen-skills-developers](https://github.com/romenrg/evergreen-skills-developers)
-- [system-design-primer](https://github.com/donnemartin/system-design-primer)
