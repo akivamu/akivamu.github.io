@@ -36,7 +36,7 @@ It's hard to perfectly arrange skills/knowledges into each level, so let's combi
 
 ## Knowledges for technical path
 
-- [ ] [Computer fundamental](cs-computer-fundamental)
+- Computer fundamental
   - Processor and Memory
   - Startup
   - Operating System
@@ -44,7 +44,7 @@ It's hard to perfectly arrange skills/knowledges into each level, so let's combi
     - Kernel and drivers
     - Processes and Threads
   - Compiler, linker, assembler...
-- [Networking](cs-networking)
+- Networking
   - Information theory
   - Protocol
     - HTTP
@@ -55,7 +55,7 @@ It's hard to perfectly arrange skills/knowledges into each level, so let's combi
     - RFID
     - ...
 - General software development
-  - [Data structure & algos](cs-data-structure-algorithm)
+  - Data structure & algos
   - Database
     - SQL, NoSQL
     - Relational design
@@ -65,7 +65,7 @@ It's hard to perfectly arrange skills/knowledges into each level, so let's combi
   - DevOps
     - CI/CD
     - Containerizing
-  - System design:
+  - [ ] [System design](cs-system-design)
     - [system-design-primer](https://github.com/donnemartin/system-design-primer)
     - UML
     - Design document
