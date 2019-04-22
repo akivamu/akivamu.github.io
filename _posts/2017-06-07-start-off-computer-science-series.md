@@ -61,7 +61,7 @@ It's hard to perfectly arrange skills/knowledges into each level, so let's combi
     - Relational design
     - Distributed database
   - Security
-  - [ ] [Software development process](cs-sdlc)
+  - [x] [Software development process](cs-sdlc)
   - DevOps
     - CI/CD
     - Containerizing
