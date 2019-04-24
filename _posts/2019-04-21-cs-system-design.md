@@ -70,7 +70,7 @@ Mean reducing the processing time of one single, no-dependencies task
 
 - Optimize algorithm
 - Increase processing ability (CPU, mem upgrade)
-- [ ] [Caching](cs-cache)
+- [x] [Caching](cs-cache)
 
 ### Optimize task with external dependencies (whole system)
 
