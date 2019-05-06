@@ -14,6 +14,8 @@ Stream webcam to web socket by nodejs: https://medium.com/@chpmrc/how-to-stream-
 
 Python Flask streaming frame by frame: https://blog.miguelgrinberg.com/post/video-streaming-with-flask
 
+https://blog.miguelgrinberg.com/post/flask-video-streaming-revisited
+
 Python Flask streaming frame by frame (frame to jpeg): http://www.chioka.in/python-live-video-streaming-example/
 
 ImageZMQ streaming: https://www.pyimagesearch.com/2019/04/15/live-video-streaming-over-network-with-opencv-and-imagezmq/
