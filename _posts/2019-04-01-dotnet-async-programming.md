@@ -22,7 +22,7 @@ General information is in official docs:
 
 Consider this code:
 
-```Csharp
+```cs
 async Task FooAsync()
 {
     Console.WriteLine("Before: ThreadID = " + Thread.CurrentThread.ManagedThreadId);
@@ -73,7 +73,7 @@ Combining with contextful will create deadlock.
 
 Let's say we have an UI app, which is contextful:
 
-```Csharp
+```cs
 async Task<string> FooAsync()
 {
     return await AnyAsyncMethod();
@@ -95,7 +95,7 @@ So, deadlock.
 
 You can prevent it by telling the continuation to NOT resume in original context, by `ConfigAwait(false)`
 
-```Csharp
+```cs
 async Task<string> FooAsync()
 {
     return await AnyAsyncMethod().ConfigureAwait(false);
@@ -107,7 +107,7 @@ async Task<string> FooAsync()
 You can make sync operation become async (kind of), mostly just to be able to `await` it.  
 You wrap it in `Task.Run()`
 
-```Csharp
+```cs
 // CPU expensive sync code
 void HeavyCalculation()
 {

@@ -7,7 +7,7 @@ tags:
 
 ![Hierarchy]({{ site.url }}/images/c-generic-collections.jpg)
 
-# The code
+## The code
 
 There are [some namespaces for collections](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/collections#BKMK_KindsOfCollections):
 
@@ -18,15 +18,16 @@ There are [some namespaces for collections](https://docs.microsoft.com/en-us/dot
 
 Basically, all collections implement `IEnumerable`.
 
-# IEnumerable and IEnumerator
+## IEnumerable and IEnumerator
 
-```
+```cs
 public interface IEnumerable
 {
     IEnumerator GetEnumerator();
 }
 ```
-```
+
+```cs
 public interface IEnumerator
 {
     object Current { get; }
@@ -52,7 +53,8 @@ In short:
 To access data in an `Enumerable`, we can just call `GetEnumerator()` and perform a while loop to obtains item via methods provided in `Enumerator`.
 
 Or we can use `foreach` for the simplicity:
-```
+
+```cs
 IEnumerable<YourType> enumerable = ...;
 
 foreach (YourType item in enumerable)
@@ -60,8 +62,10 @@ foreach (YourType item in enumerable)
    ...
 }
 ```
+
 We can roughly understand it will be translated to:
-```
+
+```cs
 IEnumerator enumerator = enumerable.GetEnumerator();
 while (enumerator.MoveNext())
 {
@@ -70,14 +74,14 @@ while (enumerator.MoveNext())
 }
 ```
 
-## Sample implementation
+### Sample implementation
 
 Let's implement our `Enumerable`, which has characteristics:
 
 - Use fixed size array to store data
 - Access data in reverse order
 
-```
+```cs
 public class MyReverseList : IEnumerable
 {
     public readonly object[] Data = new object[10];
@@ -126,7 +130,8 @@ public class MyReverseEnumerator : IEnumerator
 ```
 
 Usage:
-```
+
+```cs
 var myList = new MyReverseList();
 myList.Add(1);
 myList.Add(2);
@@ -143,14 +148,14 @@ We can see the `MyReverseList` looks normal, with an array to store data, a coun
 The important point here is in `MyReverseEnumerator`, it defines the behavior when accessing data (we do accessing data iterately by `foreach`)  
 Changing the behavior in `Enumerator`, e.g. in forward order, we will see the difference.
 
-## Sample implementation - lazy load
+### Sample implementation - lazy load
 
 This sample demonstrates the lazy load `Enumerable`:
 
 - Only fetch data when needed, infinitely
 - Leave user the right to stop enumerating at anytime (here is after 5 accesses)
 
-```
+```cs
 public class MyLazyLoadEnumerable : IEnumerable
 {
     public IEnumerator GetEnumerator()
@@ -184,8 +189,10 @@ public class MyLazyLoadEnumerator : IEnumerator
     }
 }
 ```
+
 Usage:
-```
+
+```cs
 var myLazyEnumerable = new MyLazyLoadEnumerable();
 var count = 0;
 foreach (var item in myLazyEnumerable)
@@ -197,14 +204,13 @@ foreach (var item in myLazyEnumerable)
 
 This enumerable is infinite loading, you can't convert it to list or other derived types.  
 This code will run forever because `MyLazyLoadEnumerator` always has new data (see method `MoveNext()` return true):
-```
+
+```cs
 var list = myLazyEnumerable.Cast<object>().ToList();
 ```
 
-# ICollection
+## ICollection
 
 The [`ICollection`](https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.icollection-1?view=netcore-2.1#remarks) interface extends `IEnumerable`, and is the base interface for other collections, e.g. `IList`, `IDictionary`...
 
 It adds some methods to manipulate data: `Add`, `Remove`, `Clear`...
-
-
