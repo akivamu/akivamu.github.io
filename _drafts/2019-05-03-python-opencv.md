@@ -2,7 +2,7 @@
 layout: post
 title: Python OpenCV
 tags:
-- Security
+- IOT
 ---
 
 ## Motion detection with camera
