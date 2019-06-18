@@ -46,4 +46,3 @@ Real-time Transport Protocol (RTP)
 
 - Defines format to contain/wrap the encoded media (produced by codec)
 - Popular [media containers](https://en.wikipedia.org/wiki/Comparison_of_video_container_formats)
-
