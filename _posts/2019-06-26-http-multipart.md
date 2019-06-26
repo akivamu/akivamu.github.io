@@ -16,3 +16,5 @@ For `multipart` type, there are also many [subtypes](https://www.iana.org/assign
 - [Use Firebug to look more detail in HTTP upload request](http://www.cubicrace.com/2016/05/upload-files-https-using-java.html)
 
 `multipart/x-mixed-replace` is for [server push and streaming](https://en.wikipedia.org/wiki/MIME#Mixed-Replace).
+
+- [Python video streaming with multipart/x-mixed-replace](https://blog.miguelgrinberg.com/post/video-streaming-with-flask)
