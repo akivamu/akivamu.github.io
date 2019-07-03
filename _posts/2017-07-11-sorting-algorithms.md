@@ -10,6 +10,27 @@ Full information is in [wikipedia](https://en.wikipedia.org/wiki/Sorting_algorit
 All opinions below are based on the simplest implementation of these sorting algorithms. There are many improved
 versions e.g. in-place Merge Sort, Quick Sort with O(NlogN) worst-case..., which are not mentioned here.
 
+# Some properties
+
+## Stability
+
+[What is stable sorting](https://stackoverflow.com/a/1517824/6445037)
+
+A dataset can contain multiple equal items.  
+If we sort that dataset, and keep the order of those equal items same as input, it's stable sorting.
+
+## In-place sorting
+
+Do not use extra memory (e.g. temporary array, variables...)
+
+## Online sorting
+
+Can sort while receiving input, without need to know the dataset size prior.
+
+## Locality
+
+Higher locality means during sorting, the algo moves/swaps item in shorter distance.
+
 # A. Simple sorting algorithms
 
 ## 1. Selection sort
