@@ -21,7 +21,7 @@ tags:
 
 Reference: [Linode - Linux package management](https://www.linode.com/docs/tools-reference/linux-package-management/)
 
-## Common package management systems
+## Common package management systems in Linux
 
 There are many package manager for linux systems
 
@@ -39,3 +39,9 @@ Software repositories are managed in file `/etc/apt/sources.list`.
 ### Other systems
 
 Ref: [apt-yum-dnf-pkg](https://www.digitalocean.com/community/tutorials/package-management-basics-apt-yum-dnf-pkg)
+
+## Package management in Windows
+
+Some populars in Windows systems: Scoop, Chocolatey...
+
+Ref: [Setup dev env for Windows](https://medium.com/@pranjalpaliwal/perfect-dev-environment-on-windows-the-easiest-way-691c649850eb)
