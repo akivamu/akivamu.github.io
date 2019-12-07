@@ -15,6 +15,8 @@ Taking from [Why Inverse Dependency](https://stackoverflow.com/a/1113937/6445037
 - The "high level" components define the interface (`INeedSomething`), "low level" components implement it
   - Contrast to traditional: "low level" components define the interface (`IDoSomething`)
 
+Shouldn't be confused with [abstraction and decoupling]({{site.url}}/decoupling).
+
 ## Example
 
 ### Traditional dependency direction
@@ -82,3 +84,8 @@ Looks similar, but again, the direction of dependency is based on **who owns the
 
 If `Client` (high level) defined the `Target` interface, then it's reversed dependency.  
 If `Adapter` (low level) defined the `Target` interface, then it's just tradition dependency, since the behavior is defined by the low level, high level component has to rely on it.
+
+## Extras
+
+- [examining-dependency-inversion](http://aspiringcraftsman.com/2008/12/28/examining-dependency-inversion/)
+- [art-of-separation-of-concerns](http://aspiringcraftsman.com/2008/01/03/art-of-separation-of-concerns/)
