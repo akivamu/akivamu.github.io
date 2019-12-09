@@ -6,17 +6,20 @@ tags:
 - Java
 ---
 
-## When should we use `@Override` annotation?
-* When you want to override a method of parent class
-* When you want to implement a method of an interface
+## When should we use `@Override` annotation
 
-## And if we forgot to use `@Override` annotation?
+- When you want to override a method of parent class
+- When you want to implement a method of an interface
+
+## And if we forgot to use `@Override` annotation
+
 It's just fine, no error happens. But there will be potential unexpected behaviours due to human mistakes.
 
-## So why should we use `@Override` annotation?
-* For code readability.
-* To take advantage of compiler error checking.
-* If Parent class changed, we can immediately see error when compiling.
+## So why should we use `@Override` annotation
+
+- For code readability.
+- To take advantage of compiler error checking.
+- If Parent class changed, we can immediately see error when compiling.
 
 Check this example: suppose we have a class Vehicle:
 {% highlight java %}
@@ -71,5 +74,6 @@ class Car extends Vehicle {
 The error can be detected asap, at compile time!
 
 So it's best practice to use `@Override` annotation whenever:
-* You want to override a method of parent class
-* You want to implement a method of an interface
+
+- You want to override a method of parent class
+- You want to implement a method of an interface
