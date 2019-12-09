@@ -19,3 +19,5 @@ Summary:
 - Repository provide too primitive operations and need to repeat for every model
 - For abstraction, create **Services** on top of Entity Framework
   - Service is abstraction layer, just like Repository, but with more flexible functionality
+
+Extras: [Truly generic repository](https://cpratt.co/generic-entity-base-class/)
