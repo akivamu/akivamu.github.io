@@ -91,9 +91,42 @@ The authentication flow is similar to OAuth2. See [OIDC Primer](https://develope
 
 See more: [OAuth vs OpenID](https://stackoverflow.com/a/6915454/6445037)
 
-## Extra: CSRF prevention with `state` parameter
+## Extra ref: [Attacking the OAuth Protocol](https://dhavalkapil.com/blogs/Attacking-the-OAuth-Protocol/)
 
-When initiating the OAuth flow, client will pass an unpredictable string into `state` parameter.  
-When OAuth server redirects to client, the `state` is included, so that client can verify it.
+The article points out some "weaknesses" of the protocol. Correct, but those points are described clearly in the spec (with recommended mitigation and best practice for implementation)
 
-[See detail example](https://stackoverflow.com/a/35988614/6445037)
+Read the article for detail attacks, here are my comments
+
+### 1 and 3. CSRF during authz
+
+Here 2 conditions are needed
+- Attacker is able to attack CSRF to victim (going to modified auth url)
+- The client failed (or didn't) to verify the redirect from OAuth server.
+
+The 2nd condition is the fault of client. Client should verify the redirect is correct. One tool is using the `state` parameter:
+- When initiating the OAuth flow, client will pass an unpredictable string into `state` parameter.
+- When OAuth server redirects to client, the `state` is included, so that client can verify it.
+
+### 2. Attacking `redirect_uri`
+
+Here are the conditions:
+- Attacker is able to attack CSRF to victim (going to modified auth url)
+- On the client, there is a page with XSS vulnerable.
+- The page with XSS must be registered as whitelisted redirect_uri.
+
+Again 2nd point is the fault of client. Furthermore, if there is XSS there, attacker can have much more dangerous attack, without attacking OAuth itself.
+
+For 3rd point, whitelist redirect_uri is very basic case and already defined in the spec. Major implementations of OAuth server are definitely don't have this bug.
+
+### 4. Reusing an access token - One access_token to rule them all
+
+Not sure how two clients can accept the same token. If client 2 accept any token, that's shitty client.
+
+### 5. Open Redirect in OAuth 2.0
+
+Again this is the implementation detail of the OAuth server, that doesn't whitelist the redirect_uri and doesn't validate the request params first.
+
+
+## Extra: fine-grained authz in ASP.NET Core
+
+https://www.thereformedprogrammer.net/a-better-way-to-handle-authorization-in-asp-net-core/
