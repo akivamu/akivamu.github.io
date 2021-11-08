@@ -95,4 +95,6 @@ See more: [OAuth vs OpenID](https://stackoverflow.com/a/6915454/6445037)
 
 Most of the OAuth2 security weaknesses are from the implementation details (in both Authorization server and Client)
 
-See detail evaluation here: https://blog.securityinnovation.com/pentesters-guide-to-evaluating-oauth-2.0
+See [detail evaluation here](https://blog.securityinnovation.com/pentesters-guide-to-evaluating-oauth-2.0)
+
+Also [common](https://dhavalkapil.com/blogs/Attacking-the-OAuth-Protocol/) [attacks](http://blog.intothesymmetry.com/2015/04/open-redirect-in-rfc6749-aka-oauth-20.html)
