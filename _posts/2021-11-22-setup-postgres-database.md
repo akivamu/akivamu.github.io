@@ -15,6 +15,8 @@ Run these command with user has sufficient permissions:
 -- Create db owner user
 create user mydb_admin with password '123456'
 
+grant mydb_admin to <current_user>
+
 -- Create db with above user as owner
 create database mydb owner mydb_admin
 ```
