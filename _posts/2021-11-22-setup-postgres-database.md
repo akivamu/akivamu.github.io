@@ -8,17 +8,23 @@ tags:
 # Setup new POSTGRES database
 
 ## Create database and owner
-First, create database and the owner of this database.  
-Run these command with user has sufficient permissions:
+
+Here we will:
+- Create new database `mydb`
+- Create new user `mydb_admin`
+- Set new database owner to `mydb_admin`
+
+Run these command with user has sufficient permissions (could create db):
 
 ```sql
+-- Create db (owner is current user)
+create database mydb
+
 -- Create db owner user
-create user mydb_admin with password '123456'
+create user mydb_admin with password '<your password>'
 
-grant mydb_admin to <current_user>
-
--- Create db with above user as owner
-create database mydb owner mydb_admin
+-- Change owner
+alter database mydb owner to mydb_admin
 ```
 
 The owner can do anything with the database and any objects belongs to that database.
